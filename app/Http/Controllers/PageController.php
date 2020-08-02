@@ -12,4 +12,14 @@ class PageController extends Controller
     {
         return view('page.index');
     }
+
+    public function login()
+    {
+        return view('page.login');
+    }
+
+    public function register()
+    {
+        return view('page.daftar');
+    }
 }

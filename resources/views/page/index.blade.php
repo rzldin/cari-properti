@@ -18,7 +18,7 @@
     <div class="bagian-atas">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
-                <a class="navbar-brand mb-0 h1 text-white" href="#">
+                <a class="navbar-brand mb-0 h1 text-white" href="/home">
                     <img src="{{ asset('./assets/favicon/favicon.ico')}}"  width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
                     Cari-Properti
                 </a>
@@ -53,8 +53,21 @@
         <div class="filter-pencarian">
             <div class="col-6 search">
                 <div class="card">
+                  <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Rumah</a>
+                      </li>
+                      {{-- <li class="nav-item">
+                        <a class="nav-link" href="#">Apartemen</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                      </li> --}}
+                    </ul>
+                  </div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="" method="POST">
                             @csrf
                             <div class="form-group">
                                 <div class="input-group input-group-lg">
@@ -67,7 +80,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <select name="min_harga" id="" class="form-control">
+                                        <select name="min_harga" id="min_harga" class="form-control">
                                             <option value="" selected>Harga(min)</option>
                                             <option value="1000000">1 Juta</option>
                                             <option value="10000000">10 Juta</option>
@@ -77,7 +90,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <select name="min_harga" id="" class="form-control">
+                                        <select name="max_harga" id="max_harga" class="form-control">
                                             <option value="" selected>Harga(max)</option>
                                             <option value="1000000">1 Juta</option>
                                             <option value="10000000">10 Juta</option>
@@ -115,17 +128,17 @@
     <div class="bagian-tengah">
         <div class="container">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-12 col-xs-12">
               <img src="{{ asset('./assets/background/home1.png') }}" alt="" style="width: 180px;height:180px;" class="center-block">
               <br>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus recusandae, voluptate adipisci nisi fuga eaque aliquam corrupti? Eveniet magni minus, eum nam accusamus nemo et accusantium, totam aliquid laboriosam rem?</p>
               </div>
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-12 col-xs-12">
                 <img src="{{ asset('./assets/background/money1.png') }}" alt="" style="width: 180px;height:180px;" class="center-block">
                 <br>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ipsa qui maxime laboriosam molestias vitae? Hic vitae nesciunt quos veniam optio cupiditate at earum aliquid. Mollitia corporis aliquid soluta a.</p>
               </div>
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-12 col-xs-12">
                 <img src="{{ asset('./assets/background/family1.png') }}" alt="" style="width: 180px;height:180px;" class="center-block">
                 <br>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium enim vel tempore nam voluptatum rerum, numquam officia totam consectetur? Adipisci magnam nisi dolorum magni architecto corporis distinctio quam,</p>
@@ -134,36 +147,31 @@
         </div>
     </div>
     <div class="bagian-bawah text-center">
-        <button class="button"><span>Temukan Impianmu! </span></button>
+        <button id="tombol_login" class="button"><span>Temukan Impianmu! </span></button>
     </div>
     <footer class="site-footer">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <h6>About</h6>
-              <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus labore sit ipsam dolore reiciendis repudiandae modi corrupti repellendus dolorem neque debitis eius tempora, similique architecto nulla. Magnam accusamus provident earum.</p>
+              <p class="text-justify">Cari-Properti sit amet consectetur adipisicing elit. Possimus labore sit ipsam dolore reiciendis repudiandae modi corrupti repellendus dolorem neque debitis eius tempora, similique architecto nulla. Magnam accusamus provident earum.</p>
             </div>
   
             <div class="col-xs-6 col-md-3">
               <h6>Address</h6>
               <ul class="footer-links">
-                <li><a href="http://scanfcode.com/category/c-language/">Depok, Indonesia</a></li>
-                {{--<li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-                <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-                <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-                <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-                <li><a href="http://scanfcode.com/category/templates/">Templates</a></li> --}}
+                <li><a href="">Depok, Indonesia</a></li>
               </ul>
             </div>
   
             <div class="col-xs-6 col-md-3">
               <h6>Quick Links</h6>
               <ul class="footer-links">
-                <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">Contribute</a></li>
+                <li><a href="">Privacy Policy</a></li>
+                <li><a href="">Sitemap</a></li>
               </ul>
             </div>
           </div>
@@ -192,6 +200,7 @@
     
     
     {{-- Javascript Bootstrap --}}
+    <script src="{{ asset('./assets')}}/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         const darkMode = document.querySelector("input[name=darkMode]");
@@ -201,21 +210,14 @@
             document.body.classList.toggle('dark-mode');
             card.classList.toggle('bg-dark');
             // judul.classList.toggle('text-white');
-
-
         });
 
-        $(document).ready(function() {
-        // Transition effect for navbar 
-        $(window).scroll(function() {
-          // checks if window is scrolled more than 500px, adds/removes solid class
-          if($(this).scrollTop() > 500) { 
-              $('.navbar').addClass('solid');
-          } else {
-              $('.navbar').removeClass('solid');
-          }
-        });
-});
+        const btn = document.querySelector('button#tombol_login');
+        btn.addEventListener('click', function(){
+          location = '{{route('page.login')}}';
+        })
+
+
 
     </script>
 </body>
