@@ -21,3 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@index');
 Route::get('/login', 'PageController@login')->name('page.login');
 Route::get('/register', 'PageController@register')->name('page.register');
+
+// User
+Route::get('/dashboard', 'UserController@index')->name('user.page');
+Route::get('/profile', 'UserController@profile');
+Route::get('/message', 'UserController@message');
+Route::get('/favorite', 'UserController@favorite');
+Route::get('/myads', 'UserController@myads');

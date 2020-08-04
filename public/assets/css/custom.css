@@ -1,0 +1,65 @@
+i.bundar {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.5em 0.6em;
+    color: white;
+
+}
+
+.badge {
+    position: relative;
+    top: -15px;
+    left: -22px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+button {
+    margin: 2px;
+    border-radius: 50%;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.jual {
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.rekomendasi-baru {
+    margin-top: 60px;
+}
+
+.card-body p {
+    cursor: default;
+}
+
+.jarak-atas {
+    height: 120px;
+    background-color: #DCDDDD;
+    margin-bottom: 80px;
+}
+
+.profile-user {
+    margin-bottom: 80px;
+}
+
+.inbox-user {
+    height: 500px;
+}
+
+.text-iklan {
+    width: 100%;
+    cursor: default;
+}
+
+.card-body a {
+    cursor: pointer;
+}

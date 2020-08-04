@@ -19,7 +19,7 @@
     <div class="daftar-form">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-5 form-daftar">
+                <div class="col-lg-6 form-daftar">
                     <div class="container mt-2">
                         <a class="navbar-brand mb-0 h1 text-dark" href="/">
                             <img src="{{ asset('./assets/favicon/favicon.ico')}}"  width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">Cari-Properti
@@ -62,7 +62,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-3 impian">
+                <div class="col-lg-4 bergabung">
                     <h4 class="judul-form">Sudah Bergabung?</h4>
                     <button class="btn btn-secondary btn-flat btn-daftar mt-2" style="color: white" name="daftar" id="daftar">Login</button>
                 </div>
@@ -117,6 +117,9 @@
         </div>
     </footer>
 
+    {{-- Javascript Bootstrap --}}
+    <script src="{{ asset('./assets')}}/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         const btn = document.querySelector('button#daftar');
         btn.addEventListener('click', function(){

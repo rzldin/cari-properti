@@ -19,13 +19,13 @@
     <div class="login-form">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-5 form-login">
+                <div class="col-lg-6 form-login">
                     <div class="container mt-2">
                         <a class="navbar-brand mb-0 h1 text-dark" href="/">
                             <img src="{{ asset('./assets/favicon/favicon.ico')}}"  width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">Cari-Properti
                         </a>
                     </div>
-                    <form action="" class="mt-3">
+                    <form action="" class="mt-3" method="post">
                         <h4 style="text-align: center">Login</h4>
                         <h6 style="text-align: center">Masukkan email dan password.</h6>
                         @csrf
@@ -48,7 +48,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-3 impian">
+                <div class="col-lg-4 impian">
                     <h4 class="judul-form">Bergabung, bersama kami.</h4>
                     <button class="btn btn-secondary btn-flat btn-daftar mt-2" style="color: white" name="daftar" id="daftar">Daftar</button>
                 </div>
@@ -103,6 +103,9 @@
         </div>
     </footer>
 
+    {{-- Javascript Bootstrap --}}
+    <script src="{{ asset('./assets')}}/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         const btn = document.querySelector('button#daftar');
         btn.addEventListener('click', function(){
