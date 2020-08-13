@@ -68,10 +68,9 @@
                                         <label for="category">Pilih Kategori <font style="color: red">*</font></label>
                                         <select name="category" class="form-control" id="category">
                                             <option value="1" selected>--Pilih--</option>
-                                            <option value="1">Rumah</option>
-                                            <option value="1">Apartement</option>
-                                            <option value="1">Gudang</option>
-                                            <option value="1">Ruko</option>
+                                            @foreach ($category as $c)
+                                                <option value="{{ $c->category_id }}">{{ ucwords($c->name) }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -87,12 +86,12 @@
                                         <select name="room" class="form-control" id="room">
                                             <option value="1" selected>--Pilih--</option>
                                             <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="1">5</option>
-                                            <option value="1">6</option>
-                                            <option value="1">>7</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value=">7">>7</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">

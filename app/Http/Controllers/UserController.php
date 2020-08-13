@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MasterModel;
 use Illuminate\Http\Request;
 use Laravolt\Indonesia\Models\Province;
 use Laravolt\Indonesia\Models\City;
@@ -39,8 +40,10 @@ class UserController extends Controller
     public function post()
     {
         $provinces = Province::pluck('name', 'id');
+        $category = MasterModel::category();
         return view('user.post', [
-            'provinces' => $provinces
+            'provinces' => $provinces,
+            'category' => $category
         ]);
     }
 
