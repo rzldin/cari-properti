@@ -12,8 +12,26 @@
     <link href="{{ asset('./assets') }}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="{{ asset('./assets') }}/font-awesome/css/font-awesome.min.css">
+    <style type="text/css">
+      a.scrolltotop {
+          background: #D50000 none repeat scroll 0 0;
+          border-radius: 5px;
+          bottom: 20px;
+          color: #ffffff;
+          display: none;
+          font-size: 20px;
+          height: 40px;
+          padding-top: 5px;
+          position: fixed;
+          right: 20px;
+          text-align: center;
+          width: 40px;
+          z-index: 99;
+      }      
+    </style>
     <title>Cari-Properti</title>
 </head>
+<div id="home"></div>
 <body>
     <div class="bagian-atas">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -149,6 +167,11 @@
     <div class="bagian-bawah text-center">
         <button id="tombol_login" class="button"><span>Temukan Impianmu! </span></button>
     </div>
+    <!-- ScrollTop -->
+    <div>
+      <a href="javascript:;" class="scrolltotop"><span class="fa fa-chevron-up"></span></a>
+    </div>
+    <!-- /ScrollTop -->
     <footer class="site-footer">
         <div class="container">
           <div class="row">
@@ -214,11 +237,28 @@
 
         const btn = document.querySelector('button#tombol_login');
         btn.addEventListener('click', function(){
-          location = '{{route('page.login')}}';
-        })
+          location = '{{route('login')}}';
+        });
 
+        // ScrollTop
+        $(window).scroll(function () {
+          var totalHeight = $(window).scrollTop();
+          if (totalHeight > 500) {
+                $(".scrolltotop").fadeIn();
+            } else {
+                $(".scrolltotop").fadeOut();
+            }
+        });
+      
+        //proses scroll
+        let scroll = document.querySelector('a.scrolltotop');
+        console.log(scroll);
 
-
+        scroll.addEventListener('click', function(e){
+          $([document.documentElement, document.body]).animate({
+              scrollTop: $("#home").offset().top
+            }, 600);
+        });
     </script>
 </body>
 </html>

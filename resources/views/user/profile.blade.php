@@ -14,7 +14,7 @@
                     <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit Profile</button>
                 </div>
                 <div class="col-9">
-                    <h3>Daftar Iklan</h3>
+                    <h3>Daftar Iklan Aktif</h3>
                     <div class="dropdown-divider"></div>
                     <div class="row row-cols-1 row-cols-md-2">
                         <div class="col mb-4">

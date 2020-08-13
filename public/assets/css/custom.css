@@ -63,3 +63,7 @@ button {
 .card-body a {
     cursor: pointer;
 }
+
+.login-page {
+    padding-top: 500px;
+}

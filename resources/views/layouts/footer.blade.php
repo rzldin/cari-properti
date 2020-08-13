@@ -1,3 +1,9 @@
+<!-- ScrollTop -->
+<div>
+  <a href="javascript:;" class="scrolltotop"><span class="fa fa-chevron-up"></span></a>
+</div>
+<!-- /ScrollTop -->
+
 <footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -49,5 +55,35 @@
     {{-- Javascript Bootstrap --}}
     <script src="{{ asset('./assets')}}/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+
+      //Jual
+      let jual = document.querySelector('button.jual');
+      // console.log(jual);
+      jual.addEventListener('click', function(e){
+        window.location.href = "{{ route('user.post') }}";
+      });
+
+
+      // ScrollTop
+      $(window).scroll(function () {
+        var totalHeight = $(window).scrollTop();
+        if (totalHeight > 500) {
+              $(".scrolltotop").fadeIn();
+          } else {
+              $(".scrolltotop").fadeOut();
+          }
+      });
+    
+      //proses scroll
+      let scroll = document.querySelector('a.scrolltotop');
+      // console.log(scroll);
+
+      scroll.addEventListener('click', function(e){
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#home").offset().top
+          }, 600);
+      });
+    </script>
 </body>
 </html>

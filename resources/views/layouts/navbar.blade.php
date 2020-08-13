@@ -32,21 +32,30 @@
                 <li class="nav-item">
                     <div class="btn-group">
                         <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ asset('./assets/background/user.png')}}" alt="Profile" class="img-fluid avatar">
+                            <img src="{{ asset('./assets/img/profile_user/' . Auth::user()->photo)}}" alt="Profile" class="img-fluid avatar">
                           </button>
                         <div class="dropdown-menu">
+                            <span class="dropdown-item">Hai, <br><b>{{ ucwords(Auth::user()->name) }}</b></span>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/profile"><i class="fa fa-user"></i> Profile</a>
                             <a class="dropdown-item" href="/favorite"><i class="fa fa-star"></i> Favorite</a>
                             <a class="dropdown-item" href="/myads"><i class="fa fa-list-alt"></i> Iklan Saya</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                               <i class="fa fa-sign-out"></i> {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-light jual"><i class="fa fa-plus"></i> <b>Jual</b></button>
+                    <button type="button" id="jual" class="btn btn-light jual"><i class="fa fa-plus"></i> <b>Jual</b></button>
                 </li>
             </ul>
         </div>
     </div>
     </nav>
+
+    

@@ -1407,6 +1407,143 @@
         ]
     },
     {
+        "name": "laravel/ui",
+        "version": "v2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/ui.git",
+            "reference": "da9350533d0da60d5dc42fb7de9c561c72129bba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/ui/zipball/da9350533d0da60d5dc42fb7de9c561c72129bba",
+            "reference": "da9350533d0da60d5dc42fb7de9c561c72129bba",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "^7.0",
+            "illuminate/filesystem": "^7.0",
+            "illuminate/support": "^7.0",
+            "php": "^7.2.5"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.0",
+            "phpunit/phpunit": "^8.0"
+        },
+        "time": "2020-06-30T20:56:33+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Laravel\\Ui\\UiServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Laravel\\Ui\\": "src/",
+                "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "Laravel UI utilities and presets.",
+        "keywords": [
+            "laravel",
+            "ui"
+        ]
+    },
+    {
+        "name": "laravolt/indonesia",
+        "version": "v0.26",
+        "version_normalized": "0.26.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravolt/indonesia.git",
+            "reference": "92bbe2e767d269d4bb810d2caf475b9baf679245"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravolt/indonesia/zipball/92bbe2e767d269d4bb810d2caf475b9baf679245",
+            "reference": "92bbe2e767d269d4bb810d2caf475b9baf679245",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "^6.0 | ^7.0",
+            "php": ">=7.2.5"
+        },
+        "require-dev": {
+            "orchestra/testbench": "^4.0|^5.0",
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^8.5"
+        },
+        "suggest": {
+            "laravolt/suitable": "Required if you want to access editor panel",
+            "spatie/geocoder": "Synchronize latitude longitude data directly using Google's Geocoding Service"
+        },
+        "time": "2020-03-09T09:11:49+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            },
+            "laravel": {
+                "providers": [
+                    "Laravolt\\Indonesia\\ServiceProvider"
+                ],
+                "aliases": {
+                    "Indonesia": "Laravolt\\Indonesia\\Facade"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Laravolt\\Indonesia\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bayu Hendra Winata",
+                "email": "bayu.hendra@javan.co.id"
+            },
+            {
+                "name": "Akbar Adhatama",
+                "email": "am.adhatama@gmail.com"
+            },
+            {
+                "name": "Deri Ramdani",
+                "email": "deri.ramdani1@gmail.com"
+            }
+        ],
+        "description": "Package Laravel yang berisi data Provinsi, Kabupaten/Kota, Kecamatan, dan Keluarahan/Desa di seluruh Indonesia.",
+        "keywords": [
+            "desa",
+            "indonesia",
+            "kabupaten",
+            "kecamatan",
+            "kelurahan",
+            "kota",
+            "laravel",
+            "laravolt",
+            "provinsi"
+        ]
+    },
+    {
         "name": "league/commonmark",
         "version": "1.5.3",
         "version_normalized": "1.5.3.0",
