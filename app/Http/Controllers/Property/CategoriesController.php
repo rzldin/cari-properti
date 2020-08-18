@@ -3,16 +3,13 @@
 namespace App\Http\Controllers\Property;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
 use DB;
-use Session;
 use App\Http\Controllers\Controller;
 use App\MasterModel;
 
 class CategoriesController extends Controller
 {
-    //
+
     public function index()
     {
         $data['category'] = MasterModel::category();

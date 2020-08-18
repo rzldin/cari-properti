@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\MasterModel;
+use App\User;
 use Illuminate\Http\Request;
-use Laravolt\Indonesia\Models\Province;
-use Laravolt\Indonesia\Models\City;
-use Laravolt\Indonesia\Models\District;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -14,7 +12,8 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('user.dashboard');
+        $data['posts'] = Post::get_post();
+        return view('user.dashboard')->with($data);
     }
 
     public function profile()
@@ -34,32 +33,13 @@ class UserController extends Controller
 
     public function myads()
     {
-        return view('user.myads');
+        $data['posts'] = Post::post_by_user();
+        return view('user.myads')->with($data);
     }
 
-    public function post()
+    public function get_contact()
     {
-        $provinces = Province::pluck('name', 'id');
-        $category = MasterModel::category();
-        return view('user.post', [
-            'provinces' => $provinces,
-            'category' => $category
-        ]);
-    }
-
-    public function store(Request $request)
-    {
-        $cities = City::where('province_id', $request->get('id'))
-            ->pluck('name', 'id');
-
-        return response()->json($cities);
-    }
-
-    public function district(Request $request)
-    {
-        $district = District::where('city_id', $request->get('id'))
-            ->pluck('name', 'id');
-
-        return response()->json($district);
+        $contacts = User::all();
+        return response()->json($contacts);
     }
 }

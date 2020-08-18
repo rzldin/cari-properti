@@ -55,6 +55,8 @@
     {{-- Javascript Bootstrap --}}
     <script src="{{ asset('./assets')}}/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script>
 
       //Jual

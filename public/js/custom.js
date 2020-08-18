@@ -1,20 +1,20 @@
-$(document).ready(function () {
-    document
-        .getElementById("pro-image")
-        .addEventListener("change", readImage, false);
+// $(document).ready(function () {
+//     document
+//         .getElementById("pro-image")
+//         .addEventListener("change", readImage, false);
 
-    $(".preview-images-zone").sortable();
+//     $(".preview-images-zone").sortable();
 
-    $(document).on("click", ".image-cancel", function () {
-        let no = $(this).data("no");
-        $(".preview-image.preview-show-" + no).remove();
-    });
+//     $(document).on("click", ".image-cancel", function () {
+//         let no = $(this).data("no");
+//         $(".preview-image.preview-show-" + no).remove();
+//     });
 
-    $(document).on("click", ".tools-edit-image", function () {
-        let no = $(this).data("no");
-        $(".preview-image.preview-show-" + no).change(function () {});
-    });
-});
+//     $(document).on("click", ".tools-edit-image", function () {
+//         let no = $(this).data("no");
+//         $(".preview-image.preview-show-" + no).change(function () {});
+//     });
+// });
 
 var num = 3;
 

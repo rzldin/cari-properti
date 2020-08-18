@@ -79,7 +79,6 @@
                 <li><a href="profile.html">Profile</a></li>
             </ul>
             </li>                
-            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
         </ul>
         </div>
 

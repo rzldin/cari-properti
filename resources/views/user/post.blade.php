@@ -16,22 +16,20 @@
     <link rel="stylesheet" href="{{ asset('./assets/admin/build/css/post-user.css')}}">
     {{-- Bootstrap --}}
     <link href="{{ asset('./assets') }}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- File Input Bootstrap --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/css/fileinput.min.css">
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="{{ asset('./assets') }}/font-awesome/css/font-awesome.min.css">
     {{-- Select 2 --}}
     <link href="{{ asset('./assets') }}/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .thumb{
+            margin: 10px 5px 0 0;
+            width: 100px;
+        } 
+    </style>
 
     <title>Cari-Properti</title>
-    <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
-    <script type="text/javascript">
-        $(function () {
-          $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-          });
-        });
-    </script> 
   </head>
   <div id="home"></div>
   <body>
@@ -62,12 +60,16 @@
                                 <h4><b>FORM PENJUALAN</b></h4>
                             </div>
                             <div class="card-body">
-                                <form action="">
-                                    {{ csrf_field() }}
+                                <form method="post" action="{{ url('/post/proses') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group col-md-6">
+                                        <label for="date">Tanggal <font style="color: red">*</font></label>
+                                        <input type="date" name="date" class="form-control" value="{{ date('Y-m-d') }}">
+                                    </div>
                                     <div class="form-group col-md-6">
                                         <label for="category">Pilih Kategori <font style="color: red">*</font></label>
                                         <select name="category" class="form-control" id="category">
-                                            <option value="1" selected>--Pilih--</option>
+                                            <option selected>--Pilih--</option>
                                             @foreach ($category as $c)
                                                 <option value="{{ $c->category_id }}">{{ ucwords($c->name) }}</option>
                                             @endforeach
@@ -75,11 +77,11 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="building_area">Luas Bangunan <font style="color: red">*</font></label>
-                                        <input type="number" class="form-control" id="building_area" placeholder="1,2,3, etc">
+                                        <input type="number" class="form-control" id="building_area" name="building_area" placeholder="1,2,3, etc" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="land_area">Luas Tanah <font style="color: red">*</font></label>
-                                        <input type="number" class="form-control" id="land_area" placeholder="1,2,3, etc">
+                                        <input type="number" class="form-control" id="land_area" name="land_area" placeholder="1,2,3, etc">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="room">Ruang Kamar <font style="color: red">*</font></label>
@@ -96,63 +98,51 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="floor">Lantai <font style="color: red">*</font></label>
-                                        <input type="number" class="form-control" id="floor" placeholder="1,2,3, etc">
+                                        <input type="number" class="form-control" id="floor" name="floor" placeholder="1,2,3, etc">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="">Fasilitas <font style="color:red;">*</font></label>
+                                        <label for="facilities">Fasilitas <font style="color:red;">*</font></label>
                                         <div class="form-check" style="margin-bottom: 7px;">
-                                            <input class="form-check-input" type="checkbox" id="garasi" value="option1">
-                                            <label class="form-check-label" for="garasi">Garasi</label>
+                                            <label class="form-check-label" for="garasi">
+                                                <input class="form-check-input" type="checkbox" id="garasi" name="facilities[]" value="Garasi">Garasi
+                                            </label>
                                         </div>
                                         <div class="form-check" style="margin-bottom: 7px;">
-                                            <input class="form-check-input" type="checkbox" id="taman" value="option2">
-                                            <label class="form-check-label" for="taman">Taman</label>
+                                            <label class="form-check-label" for="taman">
+                                                <input class="form-check-input" type="checkbox" id="taman" name="facilities[]" value="Taman">Taman
+                                            </label>
                                         </div>
                                         <div class="form-check" style="margin-bottom: 7px;">
-                                            <input class="form-check-input" type="checkbox" id="taman" value="option2">
-                                            <label class="form-check-label" for="taman">Kolam Renang</label>
+                                            <label class="form-check-label" for="kolam_renang">
+                                                <input class="form-check-input" type="checkbox" id="kolam_renang" name="facilities[]" value="Kolam Renang">Kolam Renang
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="location">Lokasi <font style="color: red">*</font></label>
-                                        <input type="text" class="form-control" id="location" placeholder="Jln. Mawar">
+                                        <input type="text" class="form-control" id="location" name="location" placeholder="Jln. Mawar">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="judul">Judul Iklan <font style="color: red">*</font></label>
-                                        <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul Iklan Anda">
+                                        <label for="title">Judul Iklan <font style="color: red">*</font></label>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan Judul Iklan Anda">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="building_area">Luas Bangunan <font style="color: red">*</font></label>
-                                        <input type="number" class="form-control" id="building_area" placeholder="1,2,3, etc">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="deskripsi">Deskripsi <font style="color: red">*</font></label>
-                                        <textarea class="form-control" id="deskripsi" rows="6"></textarea>
+                                        <label for="description">Deskripsi <font style="color: red">*</font></label>
+                                        <textarea class="form-control" id="desc" name="description" rows="6"></textarea>
                                     </div>
                                     <div class="dropdown-divider"></div>
                                     <div class="form-group col-md-6">
                                         <h4><b>Tentukan Harga</b></h4>
                                         <label for="price">Harga <font style="color: red">*</font></label>
-                                        <input type="number" class="form-control" id="price" placeholder="RP">
+                                        <input type="number" class="form-control" id="price" name="price" placeholder="RP">
                                     </div>
                                     <div class="dropdown-divider"></div>
                                     <div class="form-group col-md-12">
-                                        <h4><b>UNGGAH FOTO (Minimal 5 Foto)</b></h4>
-                                        <fieldset class="form-group">
-                                            <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
-                                            <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple>
-                                        </fieldset>
-                                        <div class="preview-images-zone">
-                                            <div class="preview-image preview-show-1">
-                                                <div class="image-cancel" data-no="1">x</div>
-                                                <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
-                                                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
-                                            </div>
-                                            <div class="preview-image preview-show-2">
-                                                <div class="image-cancel" data-no="2">x</div>
-                                                <div class="image-zone"><img id="pro-img-2" src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"></div>
-                                                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="2" class="btn btn-light btn-edit-image">edit</a></div>
-                                            </div>
+                                        <h4><b>UNGGAH FOTO</b></h4>
+                                        <div class="form-group col-lg-12 col-sm-12 col-11 main-section">
+                                            <input type="file" class="form-control" id="file-input" name="photo[]" multiple>
+                                            <span class="text-danger">{{ $errors->first('image') }}</span>
+                                            <div id="thumb-output"></div>
                                         </div>
                                     </div>
                                     <div class="dropdown-divider"></div>
@@ -187,11 +177,12 @@
                                             </div>
                                             <div class="col mt-4">
                                                 <input type="text" name="user" value="{{ Auth::user()->name }}" class="form-control">
+                                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <button type="submit" class="btn btn-primary mt-5 mb-3">Pasang Iklan Sekarang</button>
+                                    <button type="submit" value="submit" class="btn btn-primary mt-5 mb-3">Pasang Iklan Sekarang</button>
                                 </form>
                             </div>
                         </div>
@@ -238,7 +229,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; <?= date('Y') ?> All Rights Reserved 
+            <p class="copyright-text">Copyright &copy; <?= date('Y') ?> All Rights Reserved
             </p>
           </div>
   
@@ -255,12 +246,16 @@
       </div>
   </footer>
   
-      {{-- Javascript Bootstrap --}}
-      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-      <script src="{{ asset('./assets')}}/select2/dist/js/select2.min.js"></script>
-      <script src="{{ asset('js/custom.js') }}"></script>
-      <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
-      <script>
+    {{-- Javascript Bootstrap --}}
+    <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
+    {{-- File Input Bootstrap --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/js/fileinput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/themes/fa/theme.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="{{ asset('./assets')}}/select2/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="{{ asset('./assets') }}/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script>
           
         //Get City By Province
         $(function () {
@@ -284,6 +279,34 @@
             });
         });
 
+
+        //View Image
+        $(function(){
+            $('#file-input').on('change', function(){ //on file input change
+                if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+                {
+                    
+                    var data = $(this)[0].files; //this file data
+                    
+                    $.each(data, function(index, file){ //loop though each file
+                        if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                            var fRead = new FileReader(); //new filereader
+                            fRead.onload = (function(file){ //trigger function on successful read
+                            return function(e) {
+                                var img = $('<img/>').addClass('thumb').attr('src', e.target.result); //create image element 
+                                $('#thumb-output').append(img); //append image to output element
+                            };
+                            })(file);
+                            fRead.readAsDataURL(file); //URL representing the file's data.
+                        }
+                    });
+                    
+                }else{
+                    alert("Your browser doesn't support File API!"); //if File API is absent
+                }
+            });
+            });
+
         //Get District By City
         $(function () {
             $.ajaxSetup({
@@ -305,7 +328,6 @@
                 })
             });
         });
-
         
         // ScrollTop
         $(window).scroll(function () {

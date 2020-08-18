@@ -107,3 +107,10 @@ a.scrolltotop {
     border-radius: 50%;
     border: 2px solid white;
 }
+
+.main-section {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #c1c1c1;
+}
