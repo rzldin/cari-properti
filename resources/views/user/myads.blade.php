@@ -8,7 +8,10 @@
             <div class="dropdown-divider"></div>
             @foreach ($posts as $post)
             <div class="media mt-4 mb-4">
-                <img src="{{ asset('./assets/upload/produk/'.$post->photo)}}" class="align-self-start mr-3" alt="" width="100" height="70">
+                @php
+                    $images = explode("|", $post->photo);
+                @endphp
+                <img src="{{ asset('./assets/upload/produk/'.$images[0])}}" class="align-self-start mr-3" alt="" width="100" height="70">
                 <div class="media-body">
                     <a href="" style="text-decoration: none;color:black;"><h5 class="mt-0">{{ $post->title }}</h5></a>
                     <p class="text-iklan">{{ $post->description }}

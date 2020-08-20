@@ -41,6 +41,9 @@ Route::middleware('user')->group(function () {
         ->name('dependent-dropdown.district');
     //Post
     Route::post('/post/proses', 'PostController@addProcess');
+    Route::get('/post/detail/{slug}', 'PostController@detailPost')
+        ->name('detail');
+    Route::delete('/post/delete/{id}', 'PostController@delete');
     //Get Contacts
     Route::get('/contacts', 'UserController@get_contact')
         ->name('user.get_contacts');

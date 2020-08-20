@@ -123,8 +123,8 @@
                                         <input type="text" class="form-control" id="location" name="location" placeholder="Jln. Mawar">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="title">Judul Iklan <font style="color: red">*</font></label>
-                                        <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan Judul Iklan Anda">
+                                        <label for="title">Judul Iklan <b>(Maksimal 4 Kata)</b><font style="color: red">*</font></label>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan Judul Iklan Anda" maxlength="20">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="description">Deskripsi <font style="color: red">*</font></label>

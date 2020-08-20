@@ -9,6 +9,7 @@
       <link rel="icon" href="{{ asset('./assets/favicon/favicon.ico')}}" type='image/x-icon'/>
       {{-- MyCSS --}}
       <link rel="stylesheet" href="{{ asset('./assets/css/style.css')}}">
+      <link rel="stylesheet" href="{{ asset('./css/custom.css') }}">
       {{-- Page User --}}
       <link rel="stylesheet" href="{{ asset('./assets/css/custom.css')}}">
       {{-- Bootstrap --}}
