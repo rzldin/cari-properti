@@ -73,6 +73,7 @@ class PostController extends Controller
             $facilities = implode(",", $input['facilities']);
             $image = implode("|", $images);
             $slug = Str::slug($input['title'], '-');
+            $price = str_replace(".", "", $input['price']);
 
             DB::table('t_post')->insert([
                 'user_id' => $input['user_id'],
@@ -87,7 +88,7 @@ class PostController extends Controller
                 'title' => $input['title'],
                 'slug' => $slug,
                 'description' => $input['description'],
-                'price' => $input['price'],
+                'price' => $price,
                 'photo' =>  $image,
                 'province' => $input['province'],
                 'city' => $input['city'],

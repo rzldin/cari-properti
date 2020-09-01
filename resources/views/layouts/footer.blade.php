@@ -67,7 +67,6 @@
         window.location.href = "{{ route('user.post') }}";
       });
 
-
       // ScrollTop
       $(window).scroll(function () {
         var totalHeight = $(window).scrollTop();

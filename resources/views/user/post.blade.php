@@ -134,7 +134,7 @@
                                     <div class="form-group col-md-6">
                                         <h4><b>Tentukan Harga</b></h4>
                                         <label for="price">Harga <font style="color: red">*</font></label>
-                                        <input type="number" class="form-control" id="price" name="price" placeholder="RP">
+                                        <input type="text" class="form-control uang" id="price" name="price" placeholder="RP">
                                     </div>
                                     <div class="dropdown-divider"></div>
                                     <div class="form-group col-md-12">
@@ -248,6 +248,8 @@
   
     {{-- Javascript Bootstrap --}}
     <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
+    {{-- jQuery Mask Plugin --}}
+    <script src="{{ asset('assets/jquery-mask-plugin/src') }}/jquery.mask.js"></script>
     {{-- File Input Bootstrap --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/js/fileinput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/themes/fa/theme.min.js"></script>
@@ -307,6 +309,7 @@
             });
             });
 
+
         //Get District By City
         $(function () {
             $.ajaxSetup({
@@ -328,6 +331,13 @@
                 })
             });
         });
+
+      $(document).ready(function(){
+      // Format mata uang.
+          $( '.uang' ).mask('000.000.000.000.000.000', {
+              reverse: true
+            });
+      });
         
         // ScrollTop
         $(window).scroll(function () {
